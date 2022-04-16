@@ -6,11 +6,16 @@ buildscript {
     }
 
     dependencies {
+        def nav_version = "2.4.2"
+
         //Hilt - Dependency Injection Library
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.38.1'
 
         // Add this line
         classpath 'com.google.gms:google-services:4.3.10'
+
+        //Safe args
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
     }
 }
 

@@ -1,7 +1,10 @@
 package com.ob.bitcointicker
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.room.Room
+import com.ob.bitcointicker.data.app_db.AppDatabase
 import com.ob.bitcointicker.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 

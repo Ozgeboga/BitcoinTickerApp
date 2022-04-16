@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'com.google.gms.google-services'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -73,6 +74,7 @@ dependencies {
     //Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
 
     //Coil - Image Loading Library
     implementation "io.coil-kt:coil:2.0.0-rc03"

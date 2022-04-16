@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
+import com.firebase.ui.auth.data.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.ob.bitcointicker.databinding.FragmentUserLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -57,9 +59,14 @@ class UserLoginFragment : Fragment() {
         val response = result.idpResponse
         if (result.resultCode == RESULT_OK) {
             val user = FirebaseAuth.getInstance().currentUser
+            navigateToHome()
         } else {
-
+           //TODO()
         }
     }
 
+    private fun navigateToHome(){
+        val action = UserLoginFragmentDirections.actionUserLoginFragmentToHomeFragment()
+        findNavController().navigate(action)
+    }
 }
