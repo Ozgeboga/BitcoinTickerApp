@@ -11,12 +11,12 @@ import dagger.hilt.InstallIn
 
 @Database(entities = [Coin::class] , version = 1)
 abstract class AppDatabase : RoomDatabase(){
-    @Provides
+
     abstract fun coinDao() : CoinDao
 
     companion object {
-        fun buildDB(context: Context){
-            Room.databaseBuilder(
+        fun buildDB(context: Context) : AppDatabase{
+         return   Room.databaseBuilder(
                 context,
                 AppDatabase::class.java, "database-name"
             ).build()
