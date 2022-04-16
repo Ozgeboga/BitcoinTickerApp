@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "380168362404",
+    "project_id": "bitcointrackerapp",
+    "storage_bucket": "bitcointrackerapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380168362404:android:d9b7b6e4adf6b083a84931",
+        "android_client_info": {
+          "package_name": "com.ob.bitcointicker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380168362404-v9rbskkmhvi8u4fp5b9m2qq2uiktj54b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBM4PiBZX_xre0c2EzIBBJBWW2kCJb10LA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "380168362404-v9rbskkmhvi8u4fp5b9m2qq2uiktj54b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
