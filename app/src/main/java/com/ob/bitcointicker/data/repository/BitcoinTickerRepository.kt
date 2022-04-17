@@ -1,6 +1,7 @@
 package com.ob.bitcointicker.data.repository
 
 import com.ob.bitcointicker.api.RetrofitHelper
+import com.ob.bitcointicker.data.model.CoinDetailResponse
 import com.ob.bitcointicker.data.model.CoinListResponse
 import retrofit2.Response
 import javax.inject.Inject
@@ -11,5 +12,9 @@ class BitcoinTickerRepository @Inject constructor(
 ) {
    suspend fun makeCoinListRequest(currency: String) : Response<ArrayList<CoinListResponse>> {
         return RetrofitHelper.service.fetchCoinList( currency)
+    }
+
+    suspend fun makeCoinDetailRequest(id : String) : Response<CoinDetailResponse> {
+        return RetrofitHelper.service.coinDetail(id)
     }
 }

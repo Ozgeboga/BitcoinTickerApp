@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00000000</color>
     <color name="separatorGrey">#DFDFE7</color>
+    <color name="textBlack">#525266</color>
 </resources>

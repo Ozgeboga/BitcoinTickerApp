@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.ob.bitcointicker.api.Result
 import com.ob.bitcointicker.data.app_db.Coin
 import com.ob.bitcointicker.data.app_db.CoinListDataSource
+import com.ob.bitcointicker.data.model.CoinDetailResponse
 import com.ob.bitcointicker.data.model.CoinListResponse
 import com.ob.bitcointicker.data.repository.BitcoinTickerRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,8 +23,11 @@ class HomeViewModel @Inject constructor (
     private val coinListDataSource : CoinListDataSource
         ) : ViewModel() {
 
-    private val _coinList = MutableSharedFlow<ArrayList<CoinListResponse>>()
-    val coinList : SharedFlow<ArrayList<CoinListResponse>> = _coinList
+    private val _coinList = MutableSharedFlow<ArrayList<Coin>>()
+    val coinList : SharedFlow<ArrayList<Coin>> = _coinList
+
+    private val _coinDetails = MutableSharedFlow<CoinDetailResponse>()
+    val coinDetails : SharedFlow<CoinDetailResponse> = _coinDetails
 
      init {
          getCoinList()
@@ -49,8 +53,6 @@ class HomeViewModel @Inject constructor (
                             item.price_change_percentage_24h)
                     }
                     coinListDataSource.insertIntoDB(filteredCoinList)
-
-//                        _coinList.emit(result.data)
                 }
             }
         }
@@ -70,13 +72,25 @@ class HomeViewModel @Inject constructor (
             }
             return false
         }
-
     }
 
     private fun searchCoins(searchQuery : String ) {
         viewModelScope.launch (Dispatchers.IO){
-          val a =  coinListDataSource.findCoinsUsingParams(searchQuery)
-            a
+            _coinList.emit(coinListDataSource.findCoinsUsingParams(searchQuery) as ArrayList<Coin>)
+        }
+    }
+
+     fun getCoinDetail(id : String){
+        viewModelScope.launch {
+            val result = Result.of { repository.makeCoinDetailRequest(id) }
+            when(result) {
+                is Result.Success ->{
+                    _coinDetails.emit(result.data)
+                }
+                is Result.Error -> {
+                    //TODO()
+                }
+            }
         }
     }
 
