@@ -9,7 +9,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 
-@Database(entities = [Coin::class] , version = 1)
+@Database(entities = [Coin::class] , version = 3)
 abstract class AppDatabase : RoomDatabase(){
 
     abstract fun coinDao() : CoinDao
@@ -18,8 +18,9 @@ abstract class AppDatabase : RoomDatabase(){
         fun buildDB(context: Context) : AppDatabase{
          return   Room.databaseBuilder(
                 context,
-                AppDatabase::class.java, "database-name"
-            ).build()
+                AppDatabase::class.java, "database-name")
+             .fallbackToDestructiveMigration()
+             .build()
         }
     }
 }

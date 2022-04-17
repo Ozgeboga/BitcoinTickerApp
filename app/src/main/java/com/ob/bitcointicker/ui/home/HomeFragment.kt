@@ -26,7 +26,9 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentHomeBinding.inflate(inflater , container, false)
+        _binding = FragmentHomeBinding.inflate(inflater , container, false).apply {
+            vm = viewModel
+        }
         fetchGames()
         return binding.root
     }

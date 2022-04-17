@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.21770833333333334" />
+        <entry key="app/src/main/res/drawable/border_grey.xml" value="0.199" />
+        <entry key="app/src/main/res/drawable/ic_search_icon.xml" value="0.199" />
+        <entry key="app/src/main/res/drawable/icon_search.xml" value="0.199" />
+        <entry key="app/src/main/res/font/font.xml" value="0.22135416666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3591485507246377" />
         <entry key="app/src/main/res/layout/fragment_firebase_ui.xml" value="0.24479166666666666" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2550382209867964" />
       </map>
     </option>
   </component>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="searchIcon">@drawable/ic_search_icon</item>
+        <item name="searchHintIcon">@drawable/ic_search_icon</item>
+        <item name="queryHint">Search for coins</item>
+        <item name="defaultQueryHint">Search for coins</item>
+        <item name="closeIcon">@drawable/ic_close</item>
+        <item name="queryBackground">@color/transparent</item>
+        <item name="fontFamily">@font/source_sans_pro_regular</item>
+        <item name="iconifiedByDefault">false</item>
+    </style>
+
+    <style name="CardStyle" parent="CardView">
+        <item name="cardElevation">0dp</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="cardCornerRadius">4dp</item>
+        <item name="android:foreground">?android:attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="CardStyle.White" parent="CardStyle">
+        <item name="cardBackgroundColor">@color/white</item>
+    </style>
+
+    <style name="CardStyle.White.13dp">
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">12dp</item>
+    </style>
+
+</resources>
