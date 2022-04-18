@@ -17,5 +17,13 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.ob.bitcointicker.ui.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_coinDetailFragment"
+            app:destination="@id/coinDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/coinDetailFragment"
+        android:name="com.ob.bitcointicker.ui.detail.CoinDetailFragment"
+        android:label="CoinDetailFragment" />
 </navigation>
