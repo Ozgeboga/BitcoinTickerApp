@@ -9,8 +9,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ob.bitcointicker.data.app_db.Coin
+import com.ob.bitcointicker.data.model.CoinDetailResponse
 import com.ob.bitcointicker.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -67,9 +69,16 @@ class HomeFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
                 viewModel.coinDetails.collect{
-
+                    navigateToDetail(it)
+                 val a =   it.description.en.substringBefore('.')
+                    a
                 }
             }
         }
+    }
+
+    private fun navigateToDetail(detail : CoinDetailResponse){
+        val action = HomeFragmentDirections.actionHomeFragmentToCoinDetailFragment(detail)
+        findNavController().navigate(action)
     }
 }

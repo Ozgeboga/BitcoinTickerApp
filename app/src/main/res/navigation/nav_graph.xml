@@ -25,5 +25,11 @@
     <fragment
         android:id="@+id/coinDetailFragment"
         android:name="com.ob.bitcointicker.ui.detail.CoinDetailFragment"
-        android:label="CoinDetailFragment" />
+        android:label="CoinDetailFragment" >
+
+        <argument
+            android:name="details"
+            app:argType="com.ob.bitcointicker.data.model.CoinDetailResponse"
+            />
+    </fragment>
 </navigation>
