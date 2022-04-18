@@ -12,4 +12,5 @@
     <color name="textBlack">#525266</color>
     <color name="green">#B5FE83</color>
     <color name="red">#B20600</color>
+    <color name="background">#EFF1F8</color>
 </resources>
