@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="details"
+            type="com.ob.bitcointicker.data.model.CoinDetailResponse" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/payment_breakdown_layout"
+        style="@style/CardStyle.White.13dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/border_grey"
+        android:padding="12dp">
+
+
+        <TextView
+            android:id="@+id/market_rank"
+            style="@style/Regular.Black.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Market Rank"
+            tools:text="Market Rank" />
+
+        <TextView
+            android:id="@+id/market_cap_price"
+            style="@style/Regular.Black.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:currentPriceText="@{details.market_data.market_cap.usd}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/separator_line"
+            tools:text="434343434" />
+
+        <TextView
+            android:id="@+id/market_cap"
+            style="@style/Regular.Black.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/separator_line"
+            tools:text="Market Cap" />
+
+        <TextView
+            android:id="@+id/market_rank_num"
+            style="@style/Regular.Black.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="#1" />
+
+
+
+        <View
+            android:id="@+id/separator_line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginVertical="12dp"
+            android:layout_weight="1"
+            android:background="@color/separatorGrey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/market_rank" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

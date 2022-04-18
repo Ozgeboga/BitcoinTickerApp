@@ -31,7 +31,7 @@ object BindingAdapters {
 
     @JvmStatic
     @BindingAdapter("currentPriceText")
-    fun setCurrentPriceText(view : TextView , price : Double){
+    fun setCurrentPriceText(view : TextView , price : Any){
         view.text = "$$price"
     }
 
