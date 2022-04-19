@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ob.bitcointicker.api.Result
 import com.ob.bitcointicker.data.db.Coin
-import com.ob.bitcointicker.data.db.CoinListDataSource
 import com.ob.bitcointicker.data.db.FavoriteCoinDataSource
 import com.ob.bitcointicker.data.model.CoinDetailResponse
 import com.ob.bitcointicker.data.repository.BitcoinTickerRepository
@@ -23,6 +22,9 @@ class CoinDetailViewModel  @Inject constructor (
     private val _coinDetails = MutableSharedFlow<CoinDetailResponse>()
     val coinDetails : SharedFlow<CoinDetailResponse> = _coinDetails
 
+    private val _onError = MutableSharedFlow<Boolean>()
+    val onError : SharedFlow<Boolean> = _onError
+
 
     fun getCoinDetail(id : String){
         viewModelScope.launch {
@@ -32,7 +34,7 @@ class CoinDetailViewModel  @Inject constructor (
                     _coinDetails.emit(result.data)
                 }
                 is Result.Error -> {
-                    //TODO()
+                    _onError.emit(true)
                 }
             }
         }

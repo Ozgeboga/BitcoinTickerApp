@@ -10,12 +10,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ob.bitcointicker.R
 import com.ob.bitcointicker.data.db.Coin
-import com.ob.bitcointicker.data.model.CoinDetailResponse
 import com.ob.bitcointicker.databinding.FragmentHomeBinding
+import com.ob.bitcointicker.utils.DialogUtil.warning
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -31,11 +31,12 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater , container, false).apply {
             vm = viewModel
         }
         setListeners()
+        showError()
         fetchCoins()
         return binding.root
     }
@@ -65,6 +66,18 @@ class HomeFragment : Fragment() {
                 viewModel.coinList.collect{
                     setAdapter(it)
                     adapter.update(it)
+                }
+            }
+        }
+    }
+
+    private fun showError(){
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
+                viewModel.onError.collect{
+                    binding.apply {
+                        homeMainLayout.warning(resources.getString(R.string.fail_message))
+                    }
                 }
             }
         }

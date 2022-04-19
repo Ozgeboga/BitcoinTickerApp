@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import com.ob.bitcointicker.api.Result
 import com.ob.bitcointicker.data.db.Coin
 import com.ob.bitcointicker.data.db.CoinListDataSource
-import com.ob.bitcointicker.data.model.CoinDetailResponse
 import com.ob.bitcointicker.data.repository.BitcoinTickerRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -24,16 +23,19 @@ class HomeViewModel @Inject constructor (
     private val _coinList = MutableSharedFlow<ArrayList<Coin>>()
     val coinList : SharedFlow<ArrayList<Coin>> = _coinList
 
+    private val _onError = MutableSharedFlow<Boolean>()
+    val onError : SharedFlow<Boolean> = _onError
+
      init {
          getCoinList()
      }
 
      private fun getCoinList(){
         viewModelScope.launch {
-            val result = Result.of { repository.makeCoinListRequest("usd") }
+            val result = Result.of { repository.makeCoinListRequest() }
             when(result){
                 is Result.Error ->{
-                    //TODO()
+                    _onError.emit(true)
                 }
                 is Result.Success ->{
                     val filteredCoinList = result.data.filter {

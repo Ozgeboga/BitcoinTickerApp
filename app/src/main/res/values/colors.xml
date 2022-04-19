@@ -13,4 +13,5 @@
     <color name="green">#4E944F</color>
     <color name="red">#B20600</color>
     <color name="background">#EFF1F8</color>
+    <color name="bannerColor">#FF722F37</color>
 </resources>

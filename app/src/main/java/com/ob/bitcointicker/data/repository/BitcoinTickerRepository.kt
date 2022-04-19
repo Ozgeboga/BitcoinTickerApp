@@ -10,8 +10,8 @@ import kotlin.collections.ArrayList
 class BitcoinTickerRepository @Inject constructor(
         private val service : ApiService
 ) {
-   suspend fun makeCoinListRequest(currency: String) : Response<ArrayList<CoinListResponse>> {
-        return service.fetchCoinList( currency)
+   suspend fun makeCoinListRequest() : Response<ArrayList<CoinListResponse>> {
+        return service.fetchCoinList()
     }
 
     suspend fun makeCoinDetailRequest(id : String) : Response<CoinDetailResponse> {

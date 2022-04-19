@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
-import com.google.firebase.auth.FirebaseAuth
 import com.ob.bitcointicker.databinding.FragmentUserLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -58,7 +57,7 @@ class UserLoginFragment : Fragment() {
         if (result.resultCode == RESULT_OK) {
             navigateToHome()
         } else {
-           //TODO()
+            createSignInIntent()
         }
     }
 

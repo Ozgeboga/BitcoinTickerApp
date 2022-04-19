@@ -8,8 +8,8 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
-    @GET("coins/markets")
-    suspend fun fetchCoinList(@Query("vs_currency") currency: String) : Response<ArrayList<CoinListResponse>>
+    @GET("coins")
+    suspend fun fetchCoinList() : Response<ArrayList<CoinListResponse>>
 
     @GET("coins/{id}")
     suspend fun coinDetail(@Path( "id")  id : String ) : Response<CoinDetailResponse>

@@ -11,8 +11,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.ob.bitcointicker.R
 import com.ob.bitcointicker.databinding.FragmentDetailBinding
-import com.ob.bitcointicker.ui.home.HomeFragmentDirections
+import com.ob.bitcointicker.utils.DialogUtil.warning
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -33,6 +34,7 @@ class CoinDetailFragment : Fragment() {
         _binding = FragmentDetailBinding.inflate(inflater , container ,false)
         args.coin.id?.let { getCoinDetails(it) }
         fetchCoinDetails()
+        showError()
         setListeners()
         return binding.root
     }
@@ -70,6 +72,19 @@ class CoinDetailFragment : Fragment() {
             }
         }
     }
+
+    private fun showError(){
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
+                viewModel.onError.collect{
+                    binding.apply {
+                       mainContent.warning(resources.getString(R.string.fail_message))
+                    }
+                }
+            }
+        }
+    }
+
 
     private fun navigateBack(){
         val action = CoinDetailFragmentDirections.actionCoinDetailFragmentToHomeFragment()
