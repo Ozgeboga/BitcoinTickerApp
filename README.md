@@ -3,9 +3,9 @@
 > A Simple Cryptocurrency Tracker App
 
 ## Architecture
-MVVM (Model - ViewModel - View) is the design pattern used for making this app. 
+MVVM (Model - ViewModel - View) is the design pattern is used.
 
-## Libraries Used
+## Libraries
 
 * [Architecture][1] - A collection of libraries that help you design robust, testable, and
   maintainable apps.
