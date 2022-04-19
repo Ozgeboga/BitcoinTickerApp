@@ -1,13 +1,11 @@
 package com.ob.bitcointicker.ui.home
 
-import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ob.bitcointicker.api.Result
-import com.ob.bitcointicker.data.app_db.Coin
-import com.ob.bitcointicker.data.app_db.CoinListDataSource
+import com.ob.bitcointicker.data.db.Coin
+import com.ob.bitcointicker.data.db.CoinListDataSource
 import com.ob.bitcointicker.data.model.CoinDetailResponse
-import com.ob.bitcointicker.data.model.CoinListResponse
 import com.ob.bitcointicker.data.repository.BitcoinTickerRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

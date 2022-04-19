@@ -1,4 +1,4 @@
-package com.ob.bitcointicker.data.app_db
+package com.ob.bitcointicker.data.db
 
 import androidx.room.Dao
 import androidx.room.Insert

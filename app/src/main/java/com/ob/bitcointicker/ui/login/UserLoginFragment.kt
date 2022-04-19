@@ -1,4 +1,4 @@
-package com.ob.bitcointicker.ui.user_login
+package com.ob.bitcointicker.ui.login
 
 import android.app.Activity.RESULT_OK
 import android.os.Bundle
@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
-import com.firebase.ui.auth.data.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.ob.bitcointicker.databinding.FragmentUserLoginBinding
 import dagger.hilt.android.AndroidEntryPoint

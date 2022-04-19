@@ -5,7 +5,7 @@
     <data>
         <variable
             name="coin"
-            type="com.ob.bitcointicker.data.app_db.Coin" />
+            type="com.ob.bitcointicker.data.db.Coin" />
     </data>
 
 <androidx.cardview.widget.CardView

@@ -1,7 +1,7 @@
 package com.ob.bitcointicker.core
 
 import android.content.Context
-import com.ob.bitcointicker.data.app_db.AppDatabase
+import com.ob.bitcointicker.data.db.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -3,7 +3,7 @@ package com.ob.bitcointicker.ui.home
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ob.bitcointicker.data.app_db.Coin
+import com.ob.bitcointicker.data.db.Coin
 import com.ob.bitcointicker.databinding.CoinListItemBinding
 
 class CoinListAdapter (

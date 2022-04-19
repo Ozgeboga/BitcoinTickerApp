@@ -12,7 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ob.bitcointicker.data.app_db.Coin
+import com.ob.bitcointicker.data.db.Coin
 import com.ob.bitcointicker.data.model.CoinDetailResponse
 import com.ob.bitcointicker.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint

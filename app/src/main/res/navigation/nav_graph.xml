@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/userLoginFragment"
-        android:name="com.ob.bitcointicker.ui.user_login.UserLoginFragment"
+        android:name="com.ob.bitcointicker.ui.login.UserLoginFragment"
         android:label="UserLoginFragment"
         tools:layout="@layout/fragment_user_login">
         <action

@@ -1,4 +1,4 @@
-package com.ob.bitcointicker.data.app_db
+package com.ob.bitcointicker.data.db
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
