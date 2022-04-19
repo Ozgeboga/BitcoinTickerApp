@@ -15,9 +15,11 @@ MVVM (Model - ViewModel - View) is the design pattern is used.
   * [Hilt][6] - For Dependeny Injection 
   * [Navigation Component][12] - Handle everything needed for in-app navigation.
 * Third party
-  * [Coil][7] An image loading library for Android backed by Kotlin Coroutines.
+  * [Firebase][11] for user authentication .
   * [Kotlin Coroutines][8]  a concurrency design pattern that you can use on Android to simplify code that executes asynchronously.
-  * [Retrofit][10] for HTTP requests
+  * [Retrofit][10] for HTTP requests.
+  * [Coil][7] An image loading library for Android backed by Kotlin Coroutines.
+  
 
 
 [1]: https://developer.android.com/jetpack/arch/
@@ -29,4 +31,5 @@ MVVM (Model - ViewModel - View) is the design pattern is used.
 [8]: https://kotlinlang.org/docs/reference/coroutines-overview.html
 [10]: https://github.com/square/retrofit
 [12]: https://developer.android.com/topic/libraries/architecture/navigation/
+[11]: https://firebase.google.com/docs/auth/android/firebaseui
 
