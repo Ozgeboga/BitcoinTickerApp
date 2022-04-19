@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ob.bitcointicker.data.db.Coin
@@ -71,16 +72,18 @@ class HomeFragment : Fragment() {
 
     private fun setAdapter(coins : List<Coin>){
         adapter = CoinListAdapter(coins){
-            it.id?.let { id -> navigateToDetail(id) }
+             navigateToDetail(it)
         }
         val layoutManager = LinearLayoutManager(requireContext())
         layoutManager.orientation = LinearLayoutManager.VERTICAL
-        binding.coinsList.adapter = adapter
-        binding.coinsList.layoutManager = layoutManager
+        binding.apply {
+            coinsList.adapter = adapter
+            coinsList.layoutManager = layoutManager
+        }
     }
 
-    private fun navigateToDetail(id : String){
-        val action = HomeFragmentDirections.actionHomeFragmentToCoinDetailFragment(id)
+    private fun navigateToDetail(coin  : Coin){
+        val action = HomeFragmentDirections.actionHomeFragmentToCoinDetailFragment(coin)
         findNavController().navigate(action)
     }
 }

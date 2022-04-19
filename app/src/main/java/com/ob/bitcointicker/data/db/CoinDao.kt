@@ -9,7 +9,7 @@ import androidx.room.Query
 interface CoinDao {
 
     @Query("SELECT * FROM coin WHERE id  LIKE :param || '%'")
-    fun findByName(param : String) : List<Coin>
+    suspend fun findByName(param : String) : List<Coin>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(stockList: List<Coin>)

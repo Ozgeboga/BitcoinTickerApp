@@ -45,7 +45,8 @@ class HomeViewModel @Inject constructor (
                             item.image,
                             item.name,
                             item.current_price ,
-                            item.price_change_percentage_24h)
+                            item.price_change_percentage_24h ,
+                        false)
                     }
                     coinListDataSource.insertIntoDB(filteredCoinList)
                 }

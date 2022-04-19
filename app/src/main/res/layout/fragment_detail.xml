@@ -5,9 +5,6 @@
   >
     <data>
         <variable
-            name="vm"
-            type="com.ob.bitcointicker.ui.detail.CoinDetailViewModel" />
-        <variable
             name="coinDetail"
             type="com.ob.bitcointicker.data.model.CoinDetailResponse" />
     </data>
@@ -16,20 +13,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:navigationIcon="@drawable/ic_back_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:navigationIcon="@drawable/ic_back_icon">
+
         <TextView
+            style="@style/Regular.Black.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Regular.Black.Title"
-            tools:text="Bitcoin"
-            android:text="@{coinDetail.name}"/>
+            android:text="@{coinDetail.name}"
+            tools:text="Bitcoin" />
     </androidx.appcompat.widget.Toolbar>
 
     <ScrollView

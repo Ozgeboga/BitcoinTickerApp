@@ -31,7 +31,7 @@ class CoinDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDetailBinding.inflate(inflater , container ,false)
-        getCoinDetails(args.id)
+        args.coin.id?.let { getCoinDetails(it) }
         fetchCoinDetails()
         setListeners()
         return binding.root
@@ -51,6 +51,11 @@ class CoinDetailFragment : Fragment() {
         binding.toolbar.setNavigationOnClickListener {
             navigateBack()
         }
+
+        binding.favIcon.setOnClickListener {
+            viewModel.saveFavCoin(args.coin)
+            navigateToFavorites()
+        }
     }
 
     private fun fetchCoinDetails(){
@@ -67,7 +72,13 @@ class CoinDetailFragment : Fragment() {
     }
 
     private fun navigateBack(){
-        findNavController().navigate(CoinDetailFragmentDirections.actionCoinDetailFragmentToHomeFragment())
+        val action = CoinDetailFragmentDirections.actionCoinDetailFragmentToHomeFragment()
+        findNavController().navigate(action)
+    }
+
+    private fun navigateToFavorites(){
+        val action = CoinDetailFragmentDirections.actionCoinDetailFragmentToFavoriteCoinsFragment()
+        findNavController().navigate(action)
     }
 
 }
