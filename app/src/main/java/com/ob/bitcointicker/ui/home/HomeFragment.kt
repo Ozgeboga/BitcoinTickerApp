@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -33,6 +34,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater , container, false).apply {
             vm = viewModel
         }
+        setListeners()
         fetchCoins()
         fetchCoinDetails()
         return binding.root
@@ -41,6 +43,20 @@ class HomeFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    private fun setListeners(){
+        binding.coinSearchView.setOnQueryTextListener(onQueryTextChangeListener)
+    }
+
+
+    private val onQueryTextChangeListener : SearchView.OnQueryTextListener = object : SearchView.OnQueryTextListener {
+        override fun onQueryTextSubmit(query : String?): Boolean  = false
+
+        override fun onQueryTextChange(query : String?): Boolean {
+            viewModel.searchCoinsOnQueryChange(query)
+            return false
+        }
     }
 
     private fun fetchCoins(){
@@ -70,8 +86,6 @@ class HomeFragment : Fragment() {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
                 viewModel.coinDetails.collect{
                     navigateToDetail(it)
-                 val a =   it.description.en.substringBefore('.')
-                    a
                 }
             }
         }

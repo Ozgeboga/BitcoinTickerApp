@@ -51,7 +51,7 @@
         style="@style/Bold.Black.BigTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:currentPriceText="@{coinDetail.market_data.current_price.usd}"
+        android:text="@{`$` + coinDetail.market_data.current_price.usd}"
         android:includeFontPadding="false"
         app:layout_constraintBottom_toBottomOf="@+id/coin_image"
         app:layout_constraintEnd_toEndOf="parent"

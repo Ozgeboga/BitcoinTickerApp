@@ -37,7 +37,7 @@
                 android:inputType="text"
                 android:theme="@style/SearchViewStyle"
                 app:layout_constraintTop_toTopOf="parent"
-                app:queryTextListener="@{vm.onQueryTextChangeListener}" />
+                />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

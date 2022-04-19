@@ -58,19 +58,12 @@ class HomeViewModel @Inject constructor (
         }
     }
 
-
-    val onQueryTextChangeListener : SearchView.OnQueryTextListener = object : SearchView.OnQueryTextListener {
-
-        override fun onQueryTextSubmit(query : String?): Boolean  = false
-
-        override fun onQueryTextChange(query : String?): Boolean {
-            viewModelScope.launch {
-                query?.let {
-                    delay(250)
-                    searchCoins(query)
-                }
+    fun searchCoinsOnQueryChange(query : String?){
+        viewModelScope.launch {
+            query?.let {
+                delay(250)
+                searchCoins(query)
             }
-            return false
         }
     }
 

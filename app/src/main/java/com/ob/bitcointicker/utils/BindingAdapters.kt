@@ -12,12 +12,6 @@ import com.ob.bitcointicker.R
 object BindingAdapters {
 
     @JvmStatic
-    @BindingAdapter("queryTextListener")
-    fun setQueryTextListener(searchView: SearchView, listener: SearchView.OnQueryTextListener) {
-        searchView.setOnQueryTextListener(listener)
-    }
-
-    @JvmStatic
     @BindingAdapter("imageUrl")
     fun loadImage(view  : ImageView, url : String?){
         view.load(url)
@@ -27,12 +21,6 @@ object BindingAdapters {
     @BindingAdapter("descriptionText")
     fun setDescriptionText(view : TextView , text : String){
         view.text = text.substringBefore(".")
-    }
-
-    @JvmStatic
-    @BindingAdapter("currentPriceText")
-    fun setCurrentPriceText(view : TextView , price : Any){
-        view.text = "$$price"
     }
 
     @JvmStatic

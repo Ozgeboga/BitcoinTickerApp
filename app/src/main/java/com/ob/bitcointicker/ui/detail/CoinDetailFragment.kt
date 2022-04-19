@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ob.bitcointicker.databinding.FragmentDetailBinding
+import com.ob.bitcointicker.ui.home.HomeFragmentDirections
 
 class CoinDetailFragment : Fragment() {
 
@@ -25,6 +27,7 @@ class CoinDetailFragment : Fragment() {
         _binding = FragmentDetailBinding.inflate(inflater , container ,false).apply {
             coinDetail = args.details
         }
+        setListeners()
         return binding.root
     }
 
@@ -32,6 +35,16 @@ class CoinDetailFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    private fun setListeners(){
+        binding.toolbar.setNavigationOnClickListener {
+            navigateBack()
+        }
+    }
+
+    private fun navigateBack(){
+        findNavController().navigate(CoinDetailFragmentDirections.actionCoinDetailFragmentToHomeFragment())
     }
 
 }

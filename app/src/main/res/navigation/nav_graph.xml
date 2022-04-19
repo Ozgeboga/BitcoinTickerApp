@@ -31,5 +31,10 @@
             android:name="details"
             app:argType="com.ob.bitcointicker.data.model.CoinDetailResponse"
             />
+        <action
+            android:id="@+id/action_coinDetailFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 </navigation>
