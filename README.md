@@ -3,17 +3,17 @@
 > A Simple Cryptocurrency Tracker App
 
 ## Architecture
-MVVM (Model - ViewModel - View) is the design pattern is used.
+MVVM (Model - ViewModel - View) is used as design pattern .
 
 ## Libraries
 
 * [Architecture][1] - A collection of libraries that help you design robust, testable, and
   maintainable apps.
-  * [Data Binding][2] - Declaratively bind observable data to UI elements.
-  * [Room][4] - Access your app's SQLite database with in-app objects and compile-time checks.
+  * [Data Binding][2] - declaratively bind data to UI elements.
+  * [Room][4] - provides an abstraction layer over SQLite to allow fluent database access .
   * [ViewModel][5] - is designed to store and manage UI-related data in a lifecycle conscious way.
-  * [Hilt][6] - For Dependeny Injection 
-  * [Navigation Component][12] - Handle everything needed for in-app navigation.
+  * [Hilt][6] - for Dependeny Injection .
+  * [Navigation Component][12] - Android Jetpack's Navigation component helps you implement navigation .
 * Third party
   * [Firebase][11] for user authentication .
   * [Kotlin Coroutines][8]  a concurrency design pattern that you can use on Android to simplify code that executes asynchronously.
