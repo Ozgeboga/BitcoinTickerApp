@@ -1,4 +1,4 @@
-package com.ob.bitcointicker.core
+package com.ob.bitcointicker.di
 
 import android.content.Context
 import com.google.gson.GsonBuilder

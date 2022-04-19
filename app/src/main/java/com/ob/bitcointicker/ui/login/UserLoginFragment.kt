@@ -55,9 +55,7 @@ class UserLoginFragment : Fragment() {
 
 
     private fun onSignInResult(result: FirebaseAuthUIAuthenticationResult) {
-        val response = result.idpResponse
         if (result.resultCode == RESULT_OK) {
-            val user = FirebaseAuth.getInstance().currentUser
             navigateToHome()
         } else {
            //TODO()

@@ -105,7 +105,6 @@
             android:layout_marginHorizontal="12dp"
             android:layout_marginTop="32dp"
             android:ellipsize="end"
-            app:descriptionText="@{coinDetail.description.en}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/coin_image"

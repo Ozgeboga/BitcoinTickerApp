@@ -24,9 +24,6 @@ class HomeViewModel @Inject constructor (
     private val _coinList = MutableSharedFlow<ArrayList<Coin>>()
     val coinList : SharedFlow<ArrayList<Coin>> = _coinList
 
-    private val _coinDetails = MutableSharedFlow<CoinDetailResponse>()
-    val coinDetails : SharedFlow<CoinDetailResponse> = _coinDetails
-
      init {
          getCoinList()
      }
@@ -68,20 +65,6 @@ class HomeViewModel @Inject constructor (
     private fun searchCoins(searchQuery : String ) {
         viewModelScope.launch (Dispatchers.IO){
             _coinList.emit(coinListDataSource.findCoinsUsingParams(searchQuery) as ArrayList<Coin>)
-        }
-    }
-
-     fun getCoinDetail(id : String){
-        viewModelScope.launch {
-            val result = Result.of { repository.makeCoinDetailRequest(id) }
-            when(result) {
-                is Result.Success ->{
-                    _coinDetails.emit(result.data)
-                }
-                is Result.Error -> {
-                    //TODO()
-                }
-            }
         }
     }
 

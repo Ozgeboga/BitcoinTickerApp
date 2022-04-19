@@ -36,7 +36,6 @@ class HomeFragment : Fragment() {
         }
         setListeners()
         fetchCoins()
-        fetchCoinDetails()
         return binding.root
     }
 
@@ -72,7 +71,7 @@ class HomeFragment : Fragment() {
 
     private fun setAdapter(coins : List<Coin>){
         adapter = CoinListAdapter(coins){
-            it.id?.let { id -> viewModel.getCoinDetail(id) }
+            it.id?.let { id -> navigateToDetail(id) }
         }
         val layoutManager = LinearLayoutManager(requireContext())
         layoutManager.orientation = LinearLayoutManager.VERTICAL
@@ -80,19 +79,8 @@ class HomeFragment : Fragment() {
         binding.coinsList.layoutManager = layoutManager
     }
 
-
-    private fun fetchCoinDetails(){
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
-                viewModel.coinDetails.collect{
-                    navigateToDetail(it)
-                }
-            }
-        }
-    }
-
-    private fun navigateToDetail(detail : CoinDetailResponse){
-        val action = HomeFragmentDirections.actionHomeFragmentToCoinDetailFragment(detail)
+    private fun navigateToDetail(id : String){
+        val action = HomeFragmentDirections.actionHomeFragmentToCoinDetailFragment(id)
         findNavController().navigate(action)
     }
 }

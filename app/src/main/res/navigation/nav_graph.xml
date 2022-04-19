@@ -28,8 +28,8 @@
         android:label="CoinDetailFragment" >
 
         <argument
-            android:name="details"
-            app:argType="com.ob.bitcointicker.data.model.CoinDetailResponse"
+            android:name="id"
+            app:argType="string"
             />
         <action
             android:id="@+id/action_coinDetailFragment_to_homeFragment"
