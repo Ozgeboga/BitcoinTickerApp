@@ -44,7 +44,7 @@ class HomeViewModel @Inject constructor (
                         Coin(
                             item.symbol ,
                             item.id ,
-                            item.image,
+                            item.image.large,
                             item.name,
                             item.current_price ,
                             item.price_change_percentage_24h ,

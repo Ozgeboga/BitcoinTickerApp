@@ -14,7 +14,7 @@ data class CoinListResponse(
     val fully_diluted_valuation: Long,
     val high_24h: Double,
     val id: String,
-    val image: String,
+    val image: Image,
     val last_updated: String,
     val low_24h: Double,
     val max_supply: Double,
